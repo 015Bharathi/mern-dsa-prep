@@ -95,6 +95,9 @@ const nums = [3, 2, 2, 3];
 const val = 3;
 console.log("removeElement: ", removeElement(nums, val));
 
+
+// Day 2
+
 // 26. Remove Duplicate Element From Sorted Array
 
 function removeDuplicateElement(arr) {
