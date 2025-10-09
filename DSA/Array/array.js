@@ -95,7 +95,6 @@ const nums = [3, 2, 2, 3];
 const val = 3;
 console.log("removeElement: ", removeElement(nums, val));
 
-
 // Day 2
 
 // 26. Remove Duplicate Element From Sorted Array
@@ -109,6 +108,8 @@ function removeDuplicateElement(arr) {
   //   }
   // }
   // console.log("arr: ", output);
+
+  // Step 2
 
   let k = 1;
   for (let i = 1; i < arr.length; i++) {
@@ -130,20 +131,79 @@ console.log("removeDuplicateElement: ", removeDuplicateElement(arr));
 // 80. Remove Duplicate Element From Sorted Array
 
 function removeDuplicateElementArray(arr) {
-  let k = 2
-  for(let i = 2; i < arr.length; i++){
-    if(arr[i] !== arr[k - 2]){
-      arr[k] = arr[i]
-      k++
+  let k = 2;
+  for (let i = 2; i < arr.length; i++) {
+    if (arr[i] !== arr[k - 2]) {
+      arr[k] = arr[i];
+      k++;
     }
   }
   console.log("arr1: ", arr);
-  
-  return k
+
+  return k;
 }
 
-const arr1 = [1,1,1,2,2,3]
+const arr1 = [1, 1, 1, 2, 2, 3];
 // const arr1 = [0, 0, 1, 1, 1, 1, 2, 3, 3];
 
 console.log("removeDuplicateElementArray: ", removeDuplicateElementArray(arr1));
 
+// Day 3
+
+// 169. Majority Element
+
+// Majority Element Formula => element with count > n/2
+
+function majorityElement(nums) {
+  const count = {};
+  for (const num of nums) {
+    count[num] = (count[num] || 0) + 1;
+    if (count[num] > Math.floor(nums.length / 2)) {
+      return num;
+    }
+  }
+
+  return null;
+}
+
+const element = [3, 2, 3];
+// const element = [2, 2, 1, 1, 1, 2, 2];
+console.log("majorityElement: ", majorityElement(element));
+
+// 189. Rotate Array
+
+function reverse(arr, left, right) {
+  while (left < right) {
+    [arr[right], arr[left]] = [arr[left], arr[right]];
+    left++;
+    right--;
+  }
+}
+
+function rotateArray(arr, k) {
+  // Step 1
+  // const newArray = []
+  // for(let i = 0; i < arr.length; i++){
+  //   newArray[(i+k) % arr.length] = arr[i]
+  // }
+  // for(let i = 0; i < newArray.length; i++){
+  //   arr[i] = newArray[i]
+  // }
+  // return arr
+
+  // arr.reverse();
+
+  // Step 2
+
+  k = k % arr.length;
+  reverse(arr, 0, arr.length - 1);
+  reverse(arr, 0, k - 1);
+  reverse(arr, k, arr.length - 1);
+
+  return arr;
+}
+
+const array = [1, 2, 3, 4, 5, 6, 7];
+const k = 3;
+
+console.log("rotateArray: ", rotateArray(array, k));

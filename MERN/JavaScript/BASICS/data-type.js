@@ -41,7 +41,6 @@ console.log(map instanceof Object);
 console.log(typeof set);
 console.log(set instanceof Object);
 
-
 let a = String(13);
 console.log(typeof a);
 console.log(a instanceof String);
@@ -67,8 +66,6 @@ console.log(Boolean("hello")); // true
 console.log(Number("5") + 2); // 7
 console.log(String(5) + 2); // "52"
 
-
-
 // Mutable vs Immutable
 
 let str1 = "Hello";
@@ -83,19 +80,15 @@ let obj1 = { name: "JS" };
 obj1.name = "React";
 console.log("obj1 :", obj1); // { name: "React"} (mutable)
 
-
 // Tagged Template
 
-
-function highlight(string, value, value1){
-    console.log("string :", string);
-    console.log("value :", value);
-    console.log("value :", value1);
-    
+function highlight(string, value, value1) {
+  console.log("string :", string);
+  console.log("value :", value);
+  console.log("value :", value1);
 }
 
-let name = "JS"
-let lang = "ES6"
+let name = "JS";
+let lang = "ES6";
 
-highlight`I love ${name} in ${lang}.`
-
+highlight`I love ${name} in ${lang}.`;
